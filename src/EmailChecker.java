@@ -1,15 +1,15 @@
-/*
- *
- * Clase EmailChecker con las siguientes capacidades:
- *   isValid: Devuelve boolean si es correcto o no
- *   getUser(): Devuelve String del usuario del correo proporcionado
- *   getDomain(): Devuelve String del dominio del correo proporcionado
- *   getTLD(): Devuelve String del Top Level Domain del correo proporcionado
- *
- *
+/**
+ * Clase EmailChecker
+ * <p>
+ * Proporciona utilidades para trabajar con direcciones de correo electrónico:
+ *   - `isValid(String email)`: Devuelve un boolean indicando si el correo es válido.
+ *   - `getUser(String email)`: Devuelve el usuario (parte antes del '@') del correo proporcionado.
+ *   - `getDomain(String email)`: Devuelve el dominio (parte entre el '@' y el último '.') del correo proporcionado.
+ *   - `getTLD(String email)`: Devuelve el Top Level Domain (TLD, parte después del último '.') del correo proporcionado.
+ * <p>
  * Autor: Sergio Trujillo de la Nuez
  * GitHub: TRuHa83
- * Repositorio: https://github.com/TRuHa83/EmailChecker
+ * Repositorio: <a href="https://github.com/TRuHa83/EmailChecker">...</a>
  *
  */
 
@@ -102,7 +102,7 @@ public class EmailChecker {
 
         tld = (String) getTLD(value);
 
-        // Comprueba si TLD es valido
+        // Comprueba si TLD es válido
         for (String TLD : tldValid) {
             if (tld.equals(TLD)) {
                 return true;
