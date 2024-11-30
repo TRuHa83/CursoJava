@@ -1,14 +1,14 @@
 # EmailChecker
 
-**Práctica académica** donde se implementa una clase en Java para trabajar con direcciones de correo electrónico.
+**Ejercicio práctico** donde se implementa una clase en Java para trabajar con direcciones de correo electrónico.
 
----
 
 ## Descripción
 
 La clase `EmailChecker` permite validar y analizar direcciones de correo electrónico mediante métodos estáticos. A continuación, se detallan sus capacidades.
 
 ---
+
 ### Funcionalidades:
 
 1. **`isValid(email: String): boolean`**  
@@ -22,20 +22,22 @@ La clase `EmailChecker` permite validar y analizar direcciones de correo electr�
    Devuelve el nombre de usuario (parte antes del `@`) del correo proporcionado.
     - **Entrada:** `email` (String) - La dirección de correo electrónico.
     - **Salida:** `String` - El nombre de usuario.
+    - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
 
 
 3. **`getDomain(email: String): String`**  
-   Devuelve el dominio (parte después del `@` y antes del `.` final) del correo proporcionado.
+   Devuelve el dominio (parte después del `@`) del correo proporcionado.
     - **Entrada:** `email` (String) - La dirección de correo electrónico.
     - **Salida:** `String` - El dominio del correo.
+    - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
 
 
 4. **`getTLD(email: String): String`**  
    Devuelve el Top Level Domain (TLD) del correo proporcionado (la parte después del último punto).
     - **Entrada:** `email` (String) - La dirección de correo electrónico.
     - **Salida:** `String` - El TLD del correo.
+    - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
 
----
 
 ### Ejemplo de uso:
 
@@ -50,7 +52,7 @@ boolean isValid = EmailChecker.isValid(email); // true
 String user = EmailChecker.getUser(email);    // "usuario"
 
 // Obtener el dominio
-String domain = EmailChecker.getDomain(email); // "dominio"
+String domain = EmailChecker.getDomain(email); // "dominio.com"
 
 // Obtener el TLD
 String tld = EmailChecker.getTLD(email);      // ".com"
