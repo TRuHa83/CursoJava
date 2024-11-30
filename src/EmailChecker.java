@@ -1,15 +1,15 @@
 /**
  * Clase EmailChecker
- * <p>
+ * 
  * Proporciona utilidades para trabajar con direcciones de correo electrónico:
  *   - `isValid(String email)`: Devuelve un boolean indicando si el correo es válido.
  *   - `getUser(String email)`: Devuelve el usuario (parte antes del '@') del correo proporcionado.
  *   - `getDomain(String email)`: Devuelve el dominio (parte entre el '@' y el último '.') del correo proporcionado.
  *   - `getTLD(String email)`: Devuelve el Top Level Domain (TLD, parte después del último '.') del correo proporcionado.
- * <p>
+ * 
  * Autor: Sergio Trujillo de la Nuez
  * GitHub: TRuHa83
- * Repositorio: <a href="https://github.com/TRuHa83/EmailChecker">...</a>
+ * Repositorio: https://github.com/TRuHa83/EmailChecker
  *
  */
 
