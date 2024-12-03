@@ -1,12 +1,13 @@
 /**
- * <p> Utilidad para comprobar un correo electrónico a base de criterios específicos </p>
- * <br>
- * <p><b>· isValid(String email):</b> Comprueba si un correo electrónico es válido.</p>
- * <p><b>· debugMode(boolean value):</b> Activa o desactiva el modo depuración.</p>
- * <br>
- * <p>Autor: <b>Sergio Trujillo de la Nuez</b></p>
- * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83</a></p>
- * <p>Repositorio: <a href="https://github.com/TRuHa83/CursoJava">EmailChecker</a></p>
+ * Utilidad para comprobar un correo electrónico a base de criterios específicos.
+ *
+ * Modo de uso:
+ * · isValid(String email): Comprueba si un correo electrónico es válido.
+ * · debugMode(boolean value): Activa o desactiva el modo depuración.
+ *
+ * Autor: Sergio Trujillo de la Nuez
+ * GitHub: https://github.com/TRuHa83
+ * Repositorio: https://github.com/TRuHa83/CursoJava
  */
 
 public class EmailChecker {
