@@ -5,7 +5,17 @@
 
 ## Descripción
 
-La clase `EmailChecker` permite validar y analizar direcciones de correo electrónico mediante métodos estáticos. A continuación, se detallan sus capacidades.
+La clase `EmailChecker` permite validar y analizar direcciones de correo electrónico con las siguientes reglas:
+1. Hay únicamente un solo símbolo arroba (@).
+2. A la izquierda exactamente habrá dos palabras separadas por un punto (las dos palabras sólo contienen caracteres A..Z (en mayúsculas o minúsculas), su contenido es irrelevante.
+3. A la derecha de la @ hay un dominio válido:
+- `palcam.cat`
+- `palcam.es`
+- `palcam.org`
+- `fppro.com`
+- `fppro.es`
+4. Podemos suponer que se pueden usar indistintamente mayúsculas o minúsculas en el nombre del dominio (**FPpro, Palcam, palcam, son valores válidos**)
+5. Los únicos TLD (Top Level Domain) válidos son **.cat, .es, .org, .com.**
 
 ---
 
@@ -17,45 +27,24 @@ La clase `EmailChecker` permite validar y analizar direcciones de correo electr�
    - **Salida:** `boolean` - `true` si el correo es válido, `false` en caso contrario.
 
 
-
-2. **`getUser(email: String): String`**  
-   Devuelve el nombre de usuario (parte antes del `@`) del correo proporcionado.
-   - **Entrada:** `email` (String) - La dirección de correo electrónico.
-   - **Salida:** `String` - El nombre de usuario.
-   - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
-
-
-3. **`getDomain(email: String): String`**  
-   Devuelve el dominio (parte después del `@`) del correo proporcionado.
-   - **Entrada:** `email` (String) - La dirección de correo electrónico.
-   - **Salida:** `String` - El dominio del correo.
-   - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
-
-
-4. **`getTLD(email: String): String`**  
-   Devuelve el Top Level Domain (TLD) del correo proporcionado (la parte después del último punto).
-   - **Entrada:** `email` (String) - La dirección de correo electrónico.
-   - **Salida:** `String` - El TLD del correo.
-   - **Excepcion:** `null` - Si el correo es inválido generará null en su lugar.
+2. **`debugMode(boolean): boolean`**  
+   Habilita el modo depuración.
+   - **Entrada:** `true/false` (boolean) - Habilita (`true`) o deshabilita (`false`) el modo depuración.
+   - **Salida:** Impresiones extra para mayor detalle en los procedimientos.
 
 
 ### Ejemplo de uso:
 
 ```java
+// Habilita modo depuración
+EmailChecker.debugMode(true);
+
 // Dirección de correo de ejemplo
-String email = "usuario@dominio.com";
+String email = "nombre.usuario@palcam.com";
 
 // Verificar si es válido
 boolean isValid = EmailChecker.isValid(email); // true
 
-// Obtener el usuario
-String user = EmailChecker.getUser(email);    // "usuario"
-
-// Obtener el dominio
-String domain = EmailChecker.getDomain(email); // "dominio.com"
-
-// Obtener el TLD
-String tld = EmailChecker.getTLD(email);      // ".com"
 ```
 
 ---

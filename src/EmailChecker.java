@@ -1,114 +1,166 @@
 /**
- * Clase EmailChecker
- *
- * Proporciona utilidades para trabajar con direcciones de correo electrónico:
- *   - `isValid(String email)`: Devuelve un boolean indicando si el correo es válido.
- *   - `getUser(String email)`: Devuelve el usuario (parte antes del '@') del correo proporcionado.
- *   - `getDomain(String email)`: Devuelve el dominio (parte entre el '@' y el último '.') del correo proporcionado.
- *   - `getTLD(String email)`: Devuelve el Top Level Domain (TLD, parte después del último '.') del correo proporcionado.
- *
- * Autor: Sergio Trujillo de la Nuez
- * GitHub: TRuHa83
- * Repositorio: https://github.com/TRuHa83/EmailChecker
- *
+ * <p> Utilidad para comprobar un correo electrónico a base de criterios específicos </p>
+ * <br>
+ * <p><b>· isValid(String email):</b> Comprueba si un correo electrónico es válido.</p>
+ * <p><b>· debugMode(boolean value):</b> Activa o desactiva el modo depuración.</p>
+ * <br>
+ * <p>Autor: <b>Sergio Trujillo de la Nuez</b></p>
+ * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83</a></p>
+ * <p>Repositorio: <a href="https://github.com/TRuHa83/EmailChecker">EmailChecker</a></p>
  */
 
 public class EmailChecker {
+    // Variables
     private static final char char1 = '@';
     private static final char char2 = '.';
-    private static final String[] charInvalid = {"!", "@", "#", "$", "%", "&", "*",};
-    private static final String[] tldValid = {".cat", ".es", ".org", ".com"};
-    private static String username, domain, tld;
+    private static final String charInvalid = "!·$%&/()=?¿|#~½¬{[]}<>;";
+    private static final String[] tldValid = {"cat", "es", "org", "com"};
+    private static final String[] sldValid = {"palcam", "fppro"};
+    private static String username, domain, sld, tld;
+    private static boolean debug = false;
 
-    private static boolean checkerChar(String value, char invalid) {
+    // Habilita el modo debug
+    public static void debugMode(boolean value) {
+        if (value) {
+            debug = true;
+            printDebug("[!] Modo depuración habilitado");
+        }
+    }
+
+    // Método de impresión en modo debug
+    private static void printDebug(String text) {
+        if (debug) {
+            System.out.printf("%s\n", text);
+        }
+    }
+
+    // Cuenta el carácter en una entrada
+    private static boolean countChar(String value, char character) {
         int count = 0;
-
-        // Cuenta el número de invalid del value dado
         for (int i = 0; i < value.length(); i++) {
-            if (value.charAt(i) == invalid) {
+            if (value.charAt(i) == character) {
                 count++;
             }
         }
 
         // Si es 1 retornara true de lo contrario retorna false
-        return count == 1;
+        return count != 1;
     }
 
-    private static boolean checkerInvalid(String value) {
-        for (String chart : charInvalid) {
-            if (value.contains(chart)) {
-                return false;
-            }
+    // Comprueba los caracteres en una entrada
+    private static boolean checkChar(String value) {
+        for (int i = 0; i < charInvalid.length(); i++) {
+            if (value.indexOf(charInvalid.charAt(i)) != -1) return true;
         }
 
+        return false;
+    }
+
+    // Comprueba el nombre de usuario
+    private static boolean checkUser(String value) {
+        // Comprueba cuantos puntos hay
+        if (countChar(value, char2)) {
+            printDebug("[✕] Número de puntos en el usuario incorrecto");
+            return false;
+        }
+
+        printDebug("[✓] Número de puntos en el usuario correcto");
+
+        // Comprueba si tiene caracteres inválidos
+        if (checkChar(value)) {
+            printDebug("[✕] Carácter en usuario incorrecto");
+
+            return false;
+        }
+
+        printDebug("[✓] Caracteres en usuario correctos");
         return true;
     }
 
-    public static Object getUser(String value) {
-        // Comprueba si el correo es correcto
-        if (checkerChar(value, char1)) {
-            // Extrae el nombre de usuario
-            username = (value.substring(0, value.indexOf(char1))).toLowerCase();
-
-            if (checkerInvalid(username)) return username;
+    // Comprueba el SLD del dominio
+    private static boolean checkSLD(String value) {
+        // Comprueba si el dominio tiene caracteres inválidos
+        if (checkChar(value)) {
+            printDebug("[✕] El dominio tiene caracteres incorrecto");
+            return false;
         }
 
-        // Si es erroneo retorna null
-        return null;
-    }
+        printDebug("[✓] El domino tiene caracteres correcto");
 
-    public static Object getDomain(String value) {
-        // Comprueba si el correo es correcto
-        if ((checkerChar(value, char1)) && (checkerChar(value, char2))) {
-            // Extrae el dominio
-            domain = (value.substring(value.indexOf(char1) + 1, value.length())).toLowerCase();
-
-            if (checkerInvalid(domain)) return domain;
-        }
-
-        // Si es erroneo retorna null
-        return null;
-    }
-
-    public static Object getTLD(String value) {
-        // Comprueba si el correo es correcto
-        if ((checkerChar(value, char1)) && (checkerChar(value, char2))) {
-            domain = (String) getDomain(value);
-
-            // Comprueba si el dominio es correcto
-            if (!(domain == null)) {
-
-                // Extrae el tld y lo retorna
-                tld = domain.substring(domain.indexOf(char2), domain.length());
-                return tld;
-
-            }
-        }
-
-        // Si es erroneo retorna null
-        return null;
-    }
-
-    public static boolean isValid(String value) {
-        // Comprueba si el correo es correcto
-        if (!(checkerChar(value, char1))) return false;
-
-        // Extrae el nombre de usuario y el dominio
-        username = (String) getUser(value);
-        if (username == null) return false;
-
-        domain = (String) getDomain(value);
-        if (domain == null) return false;
-
-        tld = (String) getTLD(value);
-
-        // Comprueba si TLD es válido
-        for (String TLD : tldValid) {
-            if (tld.equals(TLD)) {
+        // Comprueba si tld es válido
+        for (String SLD : sldValid) {
+            if (value.equals(SLD)) {
+                printDebug("[✓] SLD entre los permitidos");
                 return true;
             }
         }
 
+        printDebug("[✕] El SLD no se encuentra entre los permitidos");
         return false;
+    }
+
+    // Comprueba el TLD del dominio
+    private static boolean checkTLD(String value) {
+        // Comprueba si tld es válido
+        for (String TLD : tldValid) {
+            if (value.equals(TLD)) {
+                printDebug("[✓] TLD entre los permitidos");
+                return true;
+            }
+        }
+
+        printDebug("[✕] El TLD no se encuentra entre los permitidos");
+        return false;
+
+    }
+
+    // Comprueba el dominio
+    private static boolean checkDomain(String value) {
+        // Comprueba cuantos puntos hay
+        if (countChar(value, char2)) {
+            printDebug("[✕] Número de puntos en el domino incorrecto");
+            return false;
+        }
+
+        printDebug("[✓] Número de puntos en el domino correcto");
+
+        // Separa el tld del dominio
+        sld = value.split("\\.")[0];
+        tld = value.split("\\.")[1];
+
+        // Comprueba SLD
+        printDebug("[+] Extraido el SLD: " + sld);
+        if (!checkSLD(sld)) return false;
+
+        // Comprueba TLD
+        printDebug("[+] Extraido el TLD: ." + tld);
+        return (checkTLD(tld));
+    }
+
+    // Valida el correo introducido
+    public static boolean isValid(String value) {
+        printDebug("[?] Comprobando " + value);
+
+        // Comprueba cuantas arrobas tiene
+        if (countChar(value, char1)) {
+            printDebug("[✕] Número de arrobas incorrecto");
+            return false;
+        }
+
+        printDebug("[✓] Número de arrobas correcto");
+
+        // Separa el usuario y el dominio
+        String[] email = value.split("@");
+        username = email[0].toLowerCase();
+        domain = email[1].toLowerCase();
+
+        // Comprueba el nombre de usuario
+        printDebug("[+] Extraido el usuario: " + username);
+        if (!checkUser(username)) return false;
+
+
+        // Comprueba el dominio
+        printDebug("[+] Extraido el dominio: " + domain);
+        return checkDomain(domain);
     }
 }
