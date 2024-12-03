@@ -19,12 +19,9 @@ Navega al directorio:
 
 `cd CursoJava`
 
-Compila y ejecuta la clase EmailChecker:
+- ***Compila y ejecuta:***
 
-- ***Compilar***: Usa el siguiente comando, reemplazando NombreArchivo.java con el nombre del archivo que contiene el ejercicio que deseas ejecutar (por ejemplo, EmailChecker.java):
 
-`javac src/NombreArchivo.java`
+`javac src/*.java`
 
-- ***Ejecutar***: Usa el siguiente comando, reemplazando NombreClase con el nombre de la clase principal definida en el archivo (por ejemplo, EmailChecker):
-
-`java -cp src NombreClase`
+`java -cp src Menu`
