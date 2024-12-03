@@ -5,7 +5,8 @@ A medida que avance, se irán añadiendo más ejercicios relacionados con difere
 
 ## Ejercicios
 
-1. [EmailChecker](EmailChecker.md)
+1. [Ecuación segundo grado](Ecuacion.md)
+2. [EmailChecker](EmailChecker.md)
 
 ---
 
