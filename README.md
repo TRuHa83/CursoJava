@@ -1,55 +1,29 @@
-# EmailChecker
+# Curso de Java - Proyectos y Ejercicios
 
-**Ejercicio práctico** donde se implementa una clase en Java para trabajar con direcciones de correo electrónico.
+Este repositorio contiene los ejercicios y proyectos realizados durante un curso de Java.
+A medida que avance, se irán añadiendo más ejercicios relacionados con diferentes aspectos del lenguaje.
 
+## Ejercicios
 
-## Descripción
-
-La clase `EmailChecker` permite validar y analizar direcciones de correo electrónico con las siguientes reglas:
-1. Hay únicamente un solo símbolo arroba (@).
-2. A la izquierda exactamente habrá dos palabras separadas por un punto (las dos palabras sólo contienen caracteres A..Z (en mayúsculas o minúsculas), su contenido es irrelevante.
-3. A la derecha de la @ hay un dominio válido:
-- `palcam.cat`
-- `palcam.es`
-- `palcam.org`
-- `fppro.com`
-- `fppro.es`
-4. Podemos suponer que se pueden usar indistintamente mayúsculas o minúsculas en el nombre del dominio (**FPpro, Palcam, palcam, son valores válidos**)
-5. Los únicos TLD (Top Level Domain) válidos son **.cat, .es, .org, .com.**
+1. [EmailChecker](EmailChecker.md)
 
 ---
 
-### Funcionalidades:
+### Cómo Ejecutar el Proyecto
+Clona el repositorio:
 
-1. **`isValid(email: String): boolean`**  
-   Verifica si el correo proporcionado es válido.
-   - **Entrada:** `email` (String) - La dirección de correo electrónico a verificar.
-   - **Salida:** `boolean` - `true` si el correo es válido, `false` en caso contrario.
+`git clone https://github.com/TRuHa83/CursoJava.git`
 
+Navega al directorio:
 
-2. **`debugMode(boolean): boolean`**  
-   Habilita el modo depuración.
-   - **Entrada:** `true/false` (boolean) - Habilita (`true`) o deshabilita (`false`) el modo depuración.
-   - **Salida:** Impresiones extra para mayor detalle en los procedimientos.
+`cd CursoJava`
 
+Compila y ejecuta la clase EmailChecker:
 
-### Ejemplo de uso:
+- ***Compilar***: Usa el siguiente comando, reemplazando NombreArchivo.java con el nombre del archivo que contiene el ejercicio que deseas ejecutar (por ejemplo, EmailChecker.java):
 
-```java
-// Habilita modo depuración
-EmailChecker.debugMode(true);
+`javac src/NombreArchivo.java`
 
-// Dirección de correo de ejemplo
-String email = "nombre.usuario@palcam.com";
+- ***Ejecutar***: Usa el siguiente comando, reemplazando NombreClase con el nombre de la clase principal definida en el archivo (por ejemplo, EmailChecker):
 
-// Verificar si es válido
-boolean isValid = EmailChecker.isValid(email); // true
-
-```
-
----
-
-### Autor
-- **Sergio Trujillo de la Nuez**
-   - GitHub: [TRuHa83](https://github.com/TRuHa83)
-   - Proyecto: [EmailChecker](https://github.com/TRuHa83/EmailChecker)
+`java -cp src NombreClase`
