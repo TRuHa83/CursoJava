@@ -65,3 +65,10 @@ c: 5
 ```plaintext
 El valor de la raiz es negativo.
 ```
+
+---
+
+### Autor
+- **Sergio Trujillo de la Nuez**
+    - GitHub: [TRuHa83](https://github.com/TRuHa83)
+    - Proyecto: [EmailChecker](https://github.com/TRuHa83/CursoJava)
