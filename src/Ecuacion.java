@@ -26,7 +26,6 @@ public class Ecuacion {
         double raiz = 0; // Calculo para la raiz
 
         // Introduccion
-        System.out.println("----------");
         System.out.println("Vamos a solucionar una ecuación de segundo grado.");
         System.out.println("Introduce los valores de a, b y c:");
 
