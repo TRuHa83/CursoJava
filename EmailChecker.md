@@ -52,4 +52,4 @@ boolean isValid = EmailChecker.isValid(email); // true
 ### Autor
 - **Sergio Trujillo de la Nuez**
     - GitHub: [TRuHa83](https://github.com/TRuHa83)
-    - Proyecto: [EmailChecker](https://github.com/TRuHa83/CursoJava)
+    - Proyecto: [EmailChecker](https://github.com/TRuHa83/CursoJava/blob/main/EmailChecker.md)
