@@ -1,7 +1,25 @@
+/**
+ * <p> Utilidad para resolver ecuaciones de segundo grado utilizando la fórmula general. </p>
+ * <br>
+ * <p>El programa permite calcular las raíces reales de una ecuación de la forma <b>ax² + bx + c = 0</b>.</p>
+ * <p>Si el discriminante es negativo, informa que no existen raíces reales.</p>
+ * <br>
+ * <p><b>Características principales:</b></p>
+ * <ul>
+ *   <li> Solicita los coeficientes <b>a</b>, <b>b</b> y <b>c</b> al usuario. </li>
+ *   <li> Calcula y muestra las raíces reales si existen. </li>
+ *   <li> Manejo de excepciones en caso de entrada inválida. </li>
+ * </ul>
+ * <br>
+ * <p>Autor: <b>Sergio Trujillo de la Nuez</b></p>
+ * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83</a></p>
+ * <p>Repositorio: <a href="https://github.com/TRuHa83/CursoJava">CursoJava</a></p>
+ */
+
 import java.util.Scanner;
 
 public class Ecuacion {
-    public static void main(String[] args) {
+    public static void calculo() {
         // Variables
         double a = 0; // Input usuario para valor a
         double b = 0; // Input usuario para valor b

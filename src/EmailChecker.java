@@ -6,7 +6,7 @@
  * <br>
  * <p>Autor: <b>Sergio Trujillo de la Nuez</b></p>
  * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83</a></p>
- * <p>Repositorio: <a href="https://github.com/TRuHa83/EmailChecker">EmailChecker</a></p>
+ * <p>Repositorio: <a href="https://github.com/TRuHa83/CursoJava">EmailChecker</a></p>
  */
 
 public class EmailChecker {
