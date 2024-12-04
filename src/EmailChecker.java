@@ -14,7 +14,7 @@ public class EmailChecker {
     // Variables
     private static final char char1 = '@';
     private static final char char2 = '.';
-    private static final String charInvalid = "!·$%&/()=?¿|#~½¬{[]}<>;";
+    private static final String charInvalid = "!·$%&/()=?¿|#~½¬{[]}<>;1234567890";
     private static final String[] tldValid = {"cat", "es", "org", "com"};
     private static final String[] sldValid = {"palcam", "fppro"};
     private static String username, domain, sld, tld;
