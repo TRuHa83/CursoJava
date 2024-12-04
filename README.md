@@ -19,7 +19,7 @@ Navega al directorio:
 
 `cd CursoJava`
 
-- ***Compila y ejecuta:***
+Compila y ejecuta:
 
 
 `javac src/*.java`
