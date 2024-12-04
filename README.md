@@ -21,7 +21,6 @@ Navega al directorio:
 
 Compila y ejecuta:
 
-
 `javac src/*.java`
 
 `java -cp src Menu`
