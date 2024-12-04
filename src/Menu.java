@@ -35,7 +35,7 @@ public class Menu {
                     System.out.println("--- EMAILCHECKER ---");
                     System.out.println("--------------------");
 
-                    System.out.println("Modo depuración? (S/n) ");
+                    System.out.print("Modo depuración? (S/n) ");
 
                     option = input.nextLine();
                     if (option.equalsIgnoreCase("s") || Objects.equals(option, "")) {
