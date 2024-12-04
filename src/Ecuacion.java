@@ -43,7 +43,6 @@ public class Ecuacion {
             System.out.print("c: ");
             c = input.nextDouble();
 
-            input.close(); // Cierra Scanner
             System.out.println();
 
             // Calculos
