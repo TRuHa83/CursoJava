@@ -1,21 +1,21 @@
 /**
- * Utilidad para resolver ecuaciones de segundo grado utilizando la fórmula general.
+ * <p>Utilidad para resolver ecuaciones de segundo grado utilizando la fórmula general.</p>
  *
- * El programa permite calcular las raíces reales de una ecuación de la forma ax² + bx + c = 0.
- * Si el discriminante es negativo, informa que no existen raíces reales.
- *
- * Modo de uso:
- * · Ecuacion.calculo(): Inicia el programa
- *
- * Autor: Sergio Trujillo de la Nuez
- * GitHub: https://github.com/TRuHa83">TRuHa83
- * Repositorio: https://github.com/TRuHa83/CursoJava
+ * <p>El programa permite calcular las raíces reales de una ecuación de la forma ax² + bx + c = 0.</p>
+ * <p>Si el discriminante es negativo, informa que no existen raíces reales.</p>
+ * <br>
+ * <p>Modo de uso:</p>
+ * <p>· Equation.calculation(): Inicia el programa</p>
+ * <br>
+ * <p>Autor: Sergio Trujillo de la Nuez</p>
+ * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83">TRuHa83</a></p>
+ * <p>Repositorio: <a href="https://github.com/TRuHa83/CursoJava/blob/main/Ecuacion.md">Ecuación</a></p>
  */
 
 import java.util.Scanner;
 
-public class Ecuacion {
-    public static void calculo() {
+public class Equation {
+    public static void calculation() {
         // Variables
         double a = 0; // Input usuario para valor a
         double b = 0; // Input usuario para valor b
