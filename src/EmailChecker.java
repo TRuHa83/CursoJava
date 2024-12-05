@@ -1,13 +1,17 @@
 /**
- * Utilidad para comprobar un correo electrónico a base de criterios específicos.
- *
- * Modo de uso:
- * · isValid(String email): Comprueba si un correo electrónico es válido.
- * · debugMode(boolean value): Activa o desactiva el modo depuración.
- *
- * Autor: Sergio Trujillo de la Nuez
- * GitHub: https://github.com/TRuHa83
- * Repositorio: https://github.com/TRuHa83/CursoJava
+ * <p>Utilidad para comprobar un correo electrónico a base de criterios específicos.</p>
+ * <br>
+ * <p>Modo de uso:
+ * <p>- isValid(String email): Comprueba si un correo electrónico es válido.</p>
+ * <p>- getUser(String email): Retorna el nombre de usuario del correo.</p>
+ * <p>- getDomain(String email): Retorna el dominio del correo.</p>
+ * <p>- getSLD(String email): Retorna el SLD del correo.</p>
+ * <p>- getTLD(String email): Retorna el TLD del correo.</p>
+ * <p>- debugMode(boolean value): Activa o desactiva el modo depuración.</p>
+ * <br>
+ * <p>Autor: Sergio Trujillo de la Nuez</p>
+ * <p>GitHub: <a href="https://github.com/TRuHa83">TRuHa83</a></p>
+ * <p>Repositorio: <a href="https://github.com/TRuHa83/CursoJava/blob/main/EmailChecker.md">EmailChecker</a></p>
  */
 
 public class EmailChecker {
@@ -59,6 +63,7 @@ public class EmailChecker {
 
     // Comprueba el nombre de usuario
     private static boolean checkUser(String value) {
+
         // Comprueba cuantos puntos hay
         if (countChar(value, char2)) {
             printDebug("[✕] Número de puntos en el usuario incorrecto");
@@ -76,6 +81,29 @@ public class EmailChecker {
 
         printDebug("[✓] Caracteres en usuario correctos");
         return true;
+    }
+
+    // Comprueba el dominio
+    private static boolean checkDomain(String value) {
+        // Comprueba cuantos puntos hay
+        if (countChar(value, char2)) {
+            printDebug("[✕] Número de puntos en el domino incorrecto");
+            return false;
+        }
+
+        printDebug("[✓] Número de puntos en el domino correcto");
+
+        // Separa el tld del dominio
+        sld = value.split("\\.")[0];
+        tld = value.split("\\.")[1];
+
+        // Comprueba SLD
+        printDebug("[+] Extraido el SLD: " + sld);
+        if (!checkSLD(sld)) return false;
+
+        // Comprueba TLD
+        printDebug("[+] Extraido el TLD: ." + tld);
+        return (checkTLD(tld));
     }
 
     // Comprueba el SLD del dominio
@@ -115,27 +143,28 @@ public class EmailChecker {
 
     }
 
-    // Comprueba el dominio
-    private static boolean checkDomain(String value) {
-        // Comprueba cuantos puntos hay
-        if (countChar(value, char2)) {
-            printDebug("[✕] Número de puntos en el domino incorrecto");
-            return false;
-        }
+    // Retorna el nombre de usuario
+    public static String getUser(String value) {
+        if (isValid(value)) return username;
+        return null;
+    }
 
-        printDebug("[✓] Número de puntos en el domino correcto");
+    // Retorna el domino
+    public static String getDomain(String value) {
+        if (isValid(value)) return domain;
+        return null;
+    }
 
-        // Separa el tld del dominio
-        sld = value.split("\\.")[0];
-        tld = value.split("\\.")[1];
+    // Retorna el SLD
+    public static String getSLD(String value) {
+        if (isValid(value)) return sld;
+        return null;
+    }
 
-        // Comprueba SLD
-        printDebug("[+] Extraido el SLD: " + sld);
-        if (!checkSLD(sld)) return false;
-
-        // Comprueba TLD
-        printDebug("[+] Extraido el TLD: ." + tld);
-        return (checkTLD(tld));
+    // Retorna el TLD
+    public static String getTLD(String value) {
+        if (isValid(value)) return tld;
+        return null;
     }
 
     // Valida el correo introducido
