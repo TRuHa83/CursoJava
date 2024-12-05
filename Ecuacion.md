@@ -71,4 +71,4 @@ El valor de la raiz es negativo.
 ### Autor
 - **Sergio Trujillo de la Nuez**
     - GitHub: [TRuHa83](https://github.com/TRuHa83)
-    - Proyecto: [Ecuacion](https://github.com/TRuHa83/CursoJava/blob/main/Ecuacion.md)
+    - Proyecto: [Equation](https://github.com/TRuHa83/CursoJava/blob/main/Ecuacion.md)
